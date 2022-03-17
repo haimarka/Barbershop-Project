@@ -15,7 +15,7 @@ export default function Store() {
   ])
   return (
     <div>
-      <h2>חנות</h2>
+      <h2 className={Style.storeHeader}>חנות</h2>
       <section className={Style.storeContainer}>
         {images.map((img,i)=>{
           return (
@@ -23,6 +23,7 @@ export default function Store() {
               <img src={img} alt="products" title='product' />
               <h3>price: 20$</h3>
               <h3>quantity : 500</h3>
+              <button>add</button>
             </div> 
           )
         })}
