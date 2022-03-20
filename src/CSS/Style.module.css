@@ -1,10 +1,28 @@
 body{
+    width: auto;
+    height: auto;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+body::after{
     background-color: gray;
     background-image: url('https://ilansasson.co.il/wp-content/uploads/2016/12/working-hours.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    opacity: 0.4;
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
+
 
 .navigationContainer{
     padding: 0 20px;
@@ -99,12 +117,11 @@ body{
     margin-bottom: 2%;
     border-radius: 5%;
     transition: 1s;
-
+    object-fit: cover;
 }
 
 .galleryImages img:hover{
     transform: scale(120%);
-
 }
 
 .cardsContainer {
@@ -213,23 +230,28 @@ table td{
 .messagesHeader{
     font-size: 200%;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    
 }
 
 .messagesTableContainer{
     padding: 1%;
 }
 
+/* .messagesCounter{
+
+} */
+
 .homeHeader{
     font-size: 200%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.appointmentsHeader{
+.queuesHeader{
     font-size: 200%;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.appointmentsTableContainer{
+.queuesTableContainer{
     display: flex;
     justify-content: flex-end;
     flex-flow: row wrap;
@@ -245,4 +267,22 @@ video{
 
 source{
     border: 2px solid green;
+}
+
+.queuesPopOut{
+    padding: 0.5%;
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.5);
+    max-width: 17%;
+    max-height: 60%;
+    margin-left: 23%;
+    margin-top: -18%;
+    border-radius: 10%;
+
+}
+
+.queuesCloseButton{
+    position: absolute;
+    margin-top: -82%;
+    margin-left: 35%;
 }

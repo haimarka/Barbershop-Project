@@ -1,6 +1,6 @@
-import React from 'react'
-import Style from '../CSS/Style.module.css'
-import Media from '../Media/video.mp4'
+import React from 'react';
+import Style from '../CSS/Style.module.css';
+import Media from '../Media/video.mp4';
 
 export default function Home() {
   return (

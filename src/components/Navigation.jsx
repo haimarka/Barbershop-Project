@@ -13,7 +13,7 @@ export default function Navigation() {
             <Link className={Style.navigationLinks} to='/About'>אודות</Link>
             <Link className={Style.navigationLinks} to='/Gallery'>גלריה</Link>
             <Link className={Style.navigationLinks} to='/Store'>חנות</Link>
-            <Link className={Style.navigationLinks} to='/Appointments'>קביעת תורים</Link>
+            <Link className={Style.navigationLinks} to='/Queues'>קביעת תורים</Link>
             <Link className={Style.navigationLinks} to='/Messages'>הודעות</Link>
         </nav>
     </div>

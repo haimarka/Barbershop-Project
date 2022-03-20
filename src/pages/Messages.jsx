@@ -1,15 +1,44 @@
 import React, { useState } from 'react';
 import Style from '../CSS/Style.module.css';
+import axios from 'axios'
 
 export default function Messages() {
     const [name, setName] = useState('')
     const [number, setNumber] = useState('')
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([]);
+    const [messagesCounter, setMessagesCounter] = useState(0);
+    
 
     const isValide = () =>{
         return(name.length && number.length && message.length)
     }
+
+    const getAllMessages =() =>{
+        axios
+        .get('http://localhost:8080/messages/')
+        .then(res=>{
+            console.log(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+
+    const createMessage = ()=>{
+        axios
+        .post('http://localhost:8080/messages/',{
+            name:name, number:number, message:message
+        })
+        .then(res=>{
+            console.log(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }
+    
+    
     const addMessage = () =>{
         let temp = [...messages];
         let newMessage = {
@@ -19,7 +48,27 @@ export default function Messages() {
             time: new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(),
             date: new Date().getDate()+'/'+ (new Date().getDay()-(1))+'/'+new Date().getFullYear()};
         temp.push(newMessage)
+        setMessagesCounter(messagesCounter+1)
         setMessages(temp)
+        createMessage();
+    }
+
+    const removeMessage = (i) =>{
+        let temp = [...messages];
+        temp.splice(i,1)
+        setMessagesCounter(messagesCounter-1)
+        setMessages(temp)
+    }
+
+    const deleteMessage = (id)=>{
+        axios
+        .delete(`http://localhost:8080/messages/:${id}`)
+        .then(res=>{
+            console.log(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
     }
 
   return (
@@ -37,8 +86,10 @@ export default function Messages() {
                 <textarea onChange={(e)=>setMessage(e.target.value)} cols="20" rows="3" placeholder='enter your message'></textarea><br /> <br />
                 <button type='submit'>שלח הודעה</button>
             </form> <br />
+            <h4 className={Style.messagesCounter}> messages: {messagesCounter}</h4>
+            <button onClick={()=>getAllMessages()}>getMessages</button>
             <section className={Style.messagesContainer}>
-                  {messages.map((img,i)=>{
+                  {messages.map((mes,i)=>{
                     return (
                         <table className={Style.messagesTableContainer} key={i}>
                             <tbody>
@@ -52,11 +103,12 @@ export default function Messages() {
                                 </tr>
                                 <tr>
                                     <th><img width='70px' height='70px' src="https://media.istockphoto.com/vectors/new-message-vector-icon-vector-id1016416224?k=20&m=1016416224&s=612x612&w=0&h=xC0RMnSWCh4_DIoVI-2WqkOo-S6Q9__13WJZorsoe0g=" alt="" /></th>
-                                    <td>{img.name}</td>
-                                    <td>{img.number}</td>
-                                    <td>{img.message}</td>
-                                    <td>{img.time}</td>
-                                    <td>{img.date}</td>
+                                    <td>{mes.name}</td>
+                                    <td>{mes.number}</td>
+                                    <td>{mes.message}</td>
+                                    <td>{mes.time}</td>
+                                    <td>{mes.date}</td>
+                                    <td><img style={{borderRadius: '50%',cursor: 'pointer'}} width='30px' height='30px' src='https://www.seekpng.com/png/detail/202-2022743_edit-delete-icon-png-download-delete-icon-png.png' onClick={()=>{removeMessage(i);deleteMessage(mes._id);}}/></td>
                                 </tr> 
                             </tbody>
                         </table>
@@ -66,32 +118,3 @@ export default function Messages() {
     </div>
   )
 }
-
- //     <table>
-    //         <tbody>
-    //     <tr>
-    //         <th>new message from:</th>
-    //         <td>itzhak tzaga</td>
-    //         <td>date: 12/3/22</td>
-    //         <td>time: 08:40</td>
-    //         <td>0526122936</td>
-    //         <td>message: thanks for the hair cut</td>
-    //     </tr>
-    //     <tr>
-    //         <th>new message from:</th>
-    //         <td>menashe alamo</td>
-    //         <td>date: 17/3/22</td>
-    //         <td>time: 11:05</td>
-    //         <td>0526122936</td>
-    //         <td>message: thanks for the hair cut</td>
-    //     </tr>
-    //     <tr>
-    //         <th>new message from:</th>
-    //         <td>elad gete</td>
-    //         <td>date: 18/3/22</td>
-    //         <td>time: 18:20</td>
-    //         <td>0526122936</td>
-    //         <td>message: thanks for the hair cut</td>
-    //     </tr>
-    //     </tbody>
-    // </table>
