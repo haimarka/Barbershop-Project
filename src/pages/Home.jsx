@@ -8,7 +8,7 @@ export default function Home() {
     <div>
       <section>
         <h2 className={Style.homeHeader}>המספרה של אלי</h2> <br />
-        <video controls autoPlay loop width='450px'>
+        <video controls autoPlay loop className={Style.homeVideo}>
           <source src={Media}/>
         </video> <br /> <br />
         <img id={Style.elisPicture} src={HomePicture} alt="eli gudo" />

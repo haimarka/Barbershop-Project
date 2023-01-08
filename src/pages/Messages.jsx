@@ -15,7 +15,7 @@ export default function Messages() {
     },[])
 
     const isValide = () =>{
-        return(name.length && number.length && message.length),alert("מלא את השדות")
+        return(name.length && number.length && message.length)
     }
 
     const getAllMessages = () =>{

@@ -14,7 +14,7 @@ export default function Queues() {
     getAllQueues();
   },[])
   const isValide = () =>{
-    return(name.length && date.length && time.length),alert("מלא את השדות")
+    return(name.length && date.length && time.length)
   }
 
   const getAllQueues = () =>{
@@ -98,7 +98,7 @@ const createQueues = ()=>{
                       <td>{mes.name}</td>
                       <td>{mes.date}</td>
                       <td>{mes.queue_Time}</td>
-                      <td><img style={{borderRadius: '50%',cursor: 'pointer'}} width='30px' height='30px' src='https://www.seekpng.com/png/detail/202-2022743_edit-delete-icon-png-download-delete-icon-png.png' onClick={()=>removeQueues(i)}/></td>
+                      <td><img style={{borderRadius: '50%',cursor: 'pointer'}} width='30px' height='30px' src='https://www.seekpng.com/png/detail/202-2022743_edit-delete-icon-png-download-delete-icon-png.png' title='מחיקת תור' alt='remove Queues' onClick={()=>removeQueues(i)}/></td>
                   </tr>
               </tbody>
           </table>

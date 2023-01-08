@@ -295,14 +295,11 @@ table td{
     margin-left: 38%;
 }
 
-video{
+.homeVideo{
     border: solid 2px black;
     border-radius: 5%;
     padding: 2%;
-}
-
-source{
-    border: 2px solid green;
+    width: 450px;
 }
 
 .queuesPopOut{
@@ -420,3 +417,266 @@ source{
     box-shadow: none;
     transform: translateY(0);
   }
+
+
+
+  @media screen and (max-width:1024px) {
+
+.galleryImages img{
+    width: 300px;
+    height: 300px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 5%;
+    transition: 1s;
+    object-fit: cover;
+}
+
+.storeContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.storeHeader{
+    font-size: 200%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.storeImagesContainer img{
+    outline: 3px solid black;
+    box-shadow: 10px 20px 20px lightblue;
+    margin: 5%;
+    width: 300px;
+    height: 300px;
+}
+
+.aboutSummaryContainer p{
+    width: 50%;
+}
+
+.queuesPopOut{
+    box-shadow: 10px 10px 10px lightblue;
+    border: 5px solid black;    
+    padding: 0.5%;
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.5);
+    max-width: 25%;
+    max-height: 60%;
+    margin-left: 10%;
+    margin-top: -38%;
+    border-radius: 10%;
+
+}
+
+.queuesTableContainer{
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row wrap;
+    width: 20%;
+    margin-left: 43%;
+}
+
+.messagesContainer{
+    padding: 1%;
+    margin-left: 23%;
+}
+  
+  .navigationLinks{
+      color: black;
+      font-weight: bold;
+      margin  : 3%;
+      border-radius: 10%; 
+      padding: 1%;
+      text-decoration: none;
+      transition: 1s;
+  }
+  
+  .galleryImages img{
+      width: 300px;
+      height: 300px;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      border-radius: 5%;
+      transition: 1s;
+      object-fit: cover;
+  }
+  
+  .storeContainer{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+  }
+  
+  .storeHeader{
+      font-size: 200%;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .storeImagesContainer img{
+      outline: 3px solid black;
+      box-shadow: 10px 20px 20px lightblue;
+      margin: 5%;
+      width: 300px;
+      height: 300px;
+  }
+  
+  .queuesPopOut{
+      box-shadow: 10px 10px 10px lightblue;
+      border: 5px solid black;    
+      padding: 0.5%;
+      position: absolute;
+      background-color: rgba(128, 128, 128, 0.5);
+      max-width: 25%;
+      max-height: 60%;
+      margin-left: 10%;
+      margin-top: -38%;
+      border-radius: 10%;
+  
+  }
+  
+  .queuesTableContainer{
+      display: flex;
+      justify-content: flex-end;
+      flex-flow: row wrap;
+      width: 20%;
+      margin-left: 43%;
+  }
+  
+  .messagesContainer{
+      padding: 1%;
+      margin-left: 23%;
+  }
+
+  .queuesInput{
+    width: 20%;
+    }
+
+    .messagesInput{
+        width: 20%;
+    }
+
+    .inputsButton{
+        max-width: 15%;
+    }
+} 
+
+
+
+@media screen and (max-width:768px) {
+
+.navigationLinks{
+    color: black;
+    font-weight: bold;
+    margin  : 2%;
+    border-radius: 10%; 
+    padding: 1%;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.aboutSummaryContainer p{
+    width: 60%;
+}
+
+.queuesPopOut{
+    box-shadow: 10px 10px 10px lightblue;
+    border: 5px solid black;    
+    padding: 0.5%;
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.5);
+    max-width: 35%;
+    max-height: 60%;
+    margin-left: 3%;
+    margin-top: -50%;
+    border-radius: 10%;
+}
+
+.queuesInput{
+    width: 27%;
+}
+
+.messagesInput{
+    width: 27%;
+}
+
+.inputsButton{
+    max-width: 20%;
+}
+
+  }
+
+  @media screen and (max-width:425px) {
+    
+
+#logo{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    flex-basis: 20%;
+}
+
+.homeVideo{
+    width: 300px;
+}
+
+.navigationContainer{
+    padding: 0 5px;
+}
+
+#elisPicture{
+    width: 70%;
+    height: 70%;
+}
+
+#logo{
+    width: 70px;
+    height: 70px;
+    flex-basis: 10%;
+}
+
+.navigationLinksContainer{
+    flex-basis: 90%;
+}
+
+.navigationLinks{
+    font-size: 80%;
+    color: black;
+    font-weight: bold;
+    margin: 1%;
+    border-radius: 10%; 
+    padding: 1%;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.aboutSummaryContainer p{
+    width: 70%;
+}
+
+.queuesPopOut{
+    box-shadow: 10px 10px 10px lightblue;
+    border: 5px solid black;    
+    padding: 0.5%;
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.5);
+    max-width: 35%;
+    max-height: 60%;
+    margin-left: 3%;
+    margin-top: -50%;
+    border-radius: 10%;
+}
+
+.queuesInput{
+    width: 27%;
+}
+
+.messagesInput{
+    width: 27%;
+}
+
+.inputsButton{
+    max-width: 20%;
+}
+  }
+    
