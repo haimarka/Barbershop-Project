@@ -58,6 +58,7 @@ export default function Gallery() {
               src="https://i.guim.co.uk/img/media/f71e85d348cc8c7cb202dc086a1dfe953a745c89/0_0_2560_1536/master/2560.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&s=cb0f0bed94f6287aa73c1c129b93d4cb" alt="sick parrot" title="the Barbar Shop"/></a>
         </article>
       </section>
+      
       <h2 className={Style.galleryImagesHeader}>Gallery Eli Images</h2>
       <section className={Style.galleryImages}>
         {images.map((img,i)=>{

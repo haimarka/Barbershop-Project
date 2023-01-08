@@ -33,6 +33,18 @@ body::after{
     outline: 1px solid black;
 }
 
+#elisPicture{
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    border: 7px solid black;
+}
+
+.footerNavigation{
+    width: 30px;
+    height: 30px;
+}
+
 #logo{
     border-radius: 50%;
     width: 100px;
@@ -72,7 +84,8 @@ body::after{
 }
 
 .storeImagesContainer img{
-    outline: 1px solid black;
+    outline: 3px solid black;
+    box-shadow: 10px 20px 20px lightblue;
     margin: 5%;
     width: 350px;
     height: 350px;
@@ -122,6 +135,8 @@ body::after{
 
 .galleryImages img:hover{
     transform: scale(120%);
+    box-shadow: 5px 5px 5px lightblue;
+    outline: 2px solid lightblue;
 }
 
 .cardsContainer {
@@ -212,8 +227,8 @@ table tr{
 }
 
 table td{
-    /* border: solid 1px black; */
-    /* margin-left: 5%; */
+    /* border: solid 1px black;
+    margin-left: 5%; */
     border-left: 1px solid rgba(0, 0, 0, 0.274);
     font-weight: bold;
 }
@@ -246,6 +261,27 @@ table td{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.queuesInput{
+    font-size:large;
+    border: 3px solid black;
+    height: 40px;
+    width: 15%;
+    border-radius: 10px;    
+    text-align: center;
+    /* box-shadow: 3px 3px 3px rgb(99, 127, 255);
+    text-shadow: 5px 5px 25px rgb(99, 127, 255); */
+}
+
+.messagesInput{
+    font-size:large;
+    border: 3px solid black;
+    color:black;
+    height: 40px;
+    width: 15%;
+    border-radius: 10px;    
+    text-align: center;
+}
+
 .queuesHeader{
     font-size: 200%;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -270,19 +306,117 @@ source{
 }
 
 .queuesPopOut{
+    box-shadow: 10px 10px 10px lightblue;
+    border: 5px solid black;    
     padding: 0.5%;
     position: absolute;
     background-color: rgba(128, 128, 128, 0.5);
     max-width: 17%;
     max-height: 60%;
     margin-left: 23%;
-    margin-top: -18%;
+    margin-top: -24%;
     border-radius: 10%;
 
 }
 
 .queuesCloseButton{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
     position: absolute;
     margin-top: -82%;
     margin-left: 35%;
 }
+
+
+
+.inputsButton {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  max-width: 15%;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.inputsButton:disabled {
+  pointer-events: none;
+}
+
+.inputsButton:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.inputsButton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+
+
+
+.storeButton {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    max-width: 25%;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+  }
+  
+  .storeButton:disabled {
+    pointer-events: none;
+  }
+  
+  .storeButton:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .storeButton:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }

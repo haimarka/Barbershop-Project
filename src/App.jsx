@@ -26,9 +26,9 @@ function App() {
       </Switch>
       <footer>
         <h2>Barbershop Eli Godo &copy;</h2>
-        <a href='https://www.instagram.com/eligodo/'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/800px-Instagram-Icon.png" alt="Eli's Instegram" title="Eli's Instegram" width='30px' height='30px' /></a>
-        <a href='https://m.facebook.com/profile.php?id=100000254200240'><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/640px-Facebook_icon.svg.png" alt="Eli's Facbook" title="Eli's Facbook"  width='30px' height='30px'/></a>
-        <a href='https://www.whatsapp.com/'><img src="https://1mplj44dq3qdzd57m2jvgmg8-wpengine.netdna-ssl.com/wp-content/uploads/2017/11/whatsapp-icon-logo-vector.png" alt="Eli's WhatsApp" title="Eli's WhatsApp" width='30px' height='30px' /></a>
+        <a href='https://www.instagram.com/eligodo/'><img className={Style.footerNavigation} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/800px-Instagram-Icon.png" alt="Eli's Instegram" title="Eli's Instegram"/></a>
+        <a href='https://m.facebook.com/profile.php?id=100000254200240'><img className={Style.footerNavigation} src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/640px-Facebook_icon.svg.png" alt="Eli's Facbook" title="Eli's Facbook"/></a>
+        <a href='https://www.whatsapp.com/'><img className={Style.footerNavigation} src="https://e7.pngegg.com/pngimages/829/586/png-clipart-whatsapp-logo-whatsapp-logo-desktop-computer-icons-viber-grass-viber.png" alt="Eli's WhatsApp" title="Eli's WhatsApp"/></a>
       </footer>
     </div>
     </BrowserRouter>

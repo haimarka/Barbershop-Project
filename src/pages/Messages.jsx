@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Style from '../CSS/Style.module.css';
 import axios from 'axios'
 
@@ -6,19 +6,23 @@ export default function Messages() {
     const [name, setName] = useState('')
     const [number, setNumber] = useState('')
     const [message, setMessage] = useState('')
-    const [messages, setMessages] = useState([]);
+    const [showMessages, setShowMessages] = useState('none')
+    const [messagesDetails, setMessagesDetails] = useState([]);
     const [messagesCounter, setMessagesCounter] = useState(0);
-    
+
+    useEffect(()=>{
+        getAllMessages();
+    },[])
 
     const isValide = () =>{
-        return(name.length && number.length && message.length)
+        return(name.length && number.length && message.length),alert("מלא את השדות")
     }
 
-    const getAllMessages =() =>{
+    const getAllMessages = () =>{
         axios
         .get('http://localhost:8080/messages/')
         .then(res=>{
-            console.log(res.data);
+            setMessagesDetails(res.data);
         })
         .catch(err=>{
             console.log(err);
@@ -28,7 +32,11 @@ export default function Messages() {
     const createMessage = ()=>{
         axios
         .post('http://localhost:8080/messages/',{
-            name:name, number:number, message:message
+            name:name,
+            number:number,
+            message:message,
+            time: new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(),
+            date: new Date().getDate()+'/'+ (new Date().getMonth()+1)+'/'+new Date().getFullYear()
         })
         .then(res=>{
             console.log(res.data);
@@ -37,37 +45,20 @@ export default function Messages() {
             console.log(err);
         })
     }
-    
-    
-    const addMessage = () =>{
-        let temp = [...messages];
-        let newMessage = {
-            name:name,
-            number: number,
-            message: message, 
-            time: new Date().getHours()+':'+new Date().getMinutes()+':'+new Date().getSeconds(),
-            date: new Date().getDate()+'/'+ (new Date().getDay()-(1))+'/'+new Date().getFullYear()};
-        temp.push(newMessage)
-        setMessagesCounter(messagesCounter+1)
-        setMessages(temp)
-        createMessage();
-    }
 
-    const removeMessage = (i) =>{
-        let temp = [...messages];
-        temp.splice(i,1)
-        setMessagesCounter(messagesCounter-1)
-        setMessages(temp)
-    }
-
-    const deleteMessage = (id)=>{
+    const deleteMessage = (i,id)=>{
         axios
         .delete(`http://localhost:8080/messages/:${id}`)
         .then(res=>{
-            console.log(res.data);
+            console.log('got it');
+            let temp = [...res.data];
+            console.log(temp);
+            temp.splice(i,1)
+            setMessagesDetails(temp)
+            setMessagesCounter(messagesCounter-1);
         })
         .catch(err=>{
-            console.log(err);
+            console.log(err.response);
         })
     }
 
@@ -78,18 +69,23 @@ export default function Messages() {
             <form onSubmit={(e)=>{
                 e.preventDefault();
                 if(isValide()){
-                    addMessage();
+                    createMessage();
+                    getAllMessages();
+
                 }
             }}>
-                <input onChange={(e)=>setName(e.target.value)}  type="text" placeholder='enter your name' /> <br />
-                <input onChange={(e)=>setNumber(e.target.value)} type="number" placeholder='enter your number' /><br />
-                <textarea onChange={(e)=>setMessage(e.target.value)} cols="20" rows="3" placeholder='enter your message'></textarea><br /> <br />
-                <button type='submit'>שלח הודעה</button>
+                <label> : שם פרטי</label><br />
+                <input onChange={(e)=>setName(e.target.value)} className={Style.messagesInput}  type="text" placeholder='enter your name' /> <br /><br />  
+                <label> : מס' טלפון</label><br /> 
+                <input onChange={(e)=>setNumber(e.target.value)} className={Style.messagesInput} type="number" placeholder='enter your number' /><br /><br />
+                <label> : השאר הודעה</label><br />
+                <textarea onChange={(e)=>setMessage(e.target.value)} className={Style.messagesInput} cols="20" rows="3" placeholder='enter your message'></textarea><br /> <br />
+                <button type='submit' className={Style.inputsButton} >שלח הודעה</button>
             </form> <br />
             <h4 className={Style.messagesCounter}> messages: {messagesCounter}</h4>
-            <button onClick={()=>getAllMessages()}>getMessages</button>
+            <button onClick={()=>getAllMessages()} className={Style.inputsButton} >show messages</button>
             <section className={Style.messagesContainer}>
-                  {messages.map((mes,i)=>{
+                  {messagesDetails.map((mes,i)=>{
                     return (
                         <table className={Style.messagesTableContainer} key={i}>
                             <tbody>
@@ -108,7 +104,7 @@ export default function Messages() {
                                     <td>{mes.message}</td>
                                     <td>{mes.time}</td>
                                     <td>{mes.date}</td>
-                                    <td><img style={{borderRadius: '50%',cursor: 'pointer'}} width='30px' height='30px' src='https://www.seekpng.com/png/detail/202-2022743_edit-delete-icon-png-download-delete-icon-png.png' onClick={()=>{removeMessage(i);deleteMessage(mes._id);}}/></td>
+                                    <td><img style={{borderRadius: '50%',cursor: 'pointer'}} width='30px' height='30px' src='https://www.seekpng.com/png/detail/202-2022743_edit-delete-icon-png-download-delete-icon-png.png' onClick={()=>{deleteMessage(i,mes._id)}} alt='delete message'/></td>
                                 </tr> 
                             </tbody>
                         </table>
