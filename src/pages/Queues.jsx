@@ -78,7 +78,7 @@ const createQueues = ()=>{
           <h4>מחיר לילד....................................35</h4>
           <h4>מחיר למבוגר................................45</h4>
           <h4>מחיר לאישה................................55</h4>
-          <img onClick={()=>setTurns(!turns)} className={Style.queuesCloseButton} src="https://cdn-icons-png.flaticon.com/512/1617/1617543.png" alt="" />
+          <img onClick={()=>setTurns(!turns)} className={Style.queuesCloseButton} src="https://cdn-icons-png.flaticon.com/512/1617/1617543.png" alt="hide and show prices" />
         </div>
         
         <button onClick={()=>{setTurns(!turns)}} className={Style.inputsButton} >מחירים</button> <br /> <br />

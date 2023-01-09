@@ -62,6 +62,7 @@ export default function Messages() {
         })
     }
 
+  const style = {display: showMessages?'none':'block'};
   return (
     <div>
             <h2 className={Style.messagesHeader}>הודעות</h2>
@@ -77,14 +78,14 @@ export default function Messages() {
                 <label> : שם פרטי</label><br />
                 <input onChange={(e)=>setName(e.target.value)} className={Style.messagesInput}  type="text" placeholder='enter your name' /> <br /><br />  
                 <label> : מס' טלפון</label><br /> 
-                <input onChange={(e)=>setNumber(e.target.value)} className={Style.messagesInput} type="number" placeholder='enter your number' /><br /><br />
+                <input onChange={(e)=>setNumber(e.target.value)} className={Style.messagesInput} maxLength={10} type="text" placeholder='enter your number' /><br /><br />
                 <label> : השאר הודעה</label><br />
                 <textarea onChange={(e)=>setMessage(e.target.value)} className={Style.messagesInput} cols="20" rows="3" placeholder='enter your message'></textarea><br /> <br />
                 <button type='submit' className={Style.inputsButton} >שלח הודעה</button>
             </form> <br />
             <h4 className={Style.messagesCounter}> messages: {messagesCounter}</h4>
-            <button onClick={()=>getAllMessages()} className={Style.inputsButton} >show messages</button>
-            <section className={Style.messagesContainer}>
+            <button onClick={()=>{getAllMessages();setShowMessages(!showMessages)}} className={Style.inputsButton} >show messages</button>
+            <section className={Style.messagesContainer} style={style}>
                   {messagesDetails.map((mes,i)=>{
                     return (
                         <table className={Style.messagesTableContainer} key={i}>
